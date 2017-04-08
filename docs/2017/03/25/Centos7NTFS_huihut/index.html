@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MPI 笔记 | P2P</title>
+  <title>Centos 7 挂载 NTFS 分区 | P2P</title>
   <meta name="author" content="P2P">
   
   <meta name="description" content="P2P is a PAC team from GDUT.">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="MPI 笔记"/>
+  <meta property="og:title" content="Centos 7 挂载 NTFS 分区"/>
   <meta property="og:site_name" content="P2P"/>
 
   
@@ -51,28 +51,24 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-03-12T22:46:08.000Z"><a href="/notes/2017/03/13/MPINotes_huihut/">2017-03-13</a></time>
+        <time datetime="2017-03-25T03:03:29.000Z"><a href="/notes/2017/03/25/Centos7NTFS_huihut/">2017-03-25</a></time>
       
       
   
-    <h1 class="title">MPI 笔记</h1>
+    <h1 class="title">Centos 7 挂载 NTFS 分区</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>MPI的笔记。</p>
-<a id="more"></a> 
-<h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><p>MPI(Massage Passing Interface):<br>消息传递函数库的标准规范，由MPI论坛开发，支持Fortran和C。</p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>简单的MPI并行程序Hello：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &quot;mpi.h&quot;
+        <p>Centos 7 挂载 NTFS 分区</p>
+<a id="more"></a>
+<h2 id="NTFS-3G"><a href="#NTFS-3G" class="headerlink" title="NTFS-3G"></a>NTFS-3G</h2><p>使用 NTFS-3G 实现，可以挂载 NTFS，还可以挂载 HFS+ 等，以下是在 Centos 7 下安装 NTFS-3G 及挂载 NTFS 分区</p>
+<pre><code>wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 
-main(int argc, char *argv[]){
-    MPI_Init(&amp;argc, &amp;argv);     //MPI的初始化
-    printf(&quot;Hello, world!\n&quot;);
-    MPI_Finalize();
-}
+sudo yum update
+
+sudo yum install ntfs-3g
 </code></pre>
       
     </div>
@@ -87,7 +83,7 @@ main(int argc, char *argv[]){
         
   
   <div class="tags">
-    <a href="/notes/tags/MPI/">MPI</a>
+    <a href="/notes/tags/Linux/">Linux</a>
   </div>
 
         

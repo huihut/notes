@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>MPI 笔记 | P2P</title>
+  <title>Centos 7 设置开机自动联网 | P2P</title>
   <meta name="author" content="P2P">
   
   <meta name="description" content="P2P is a PAC team from GDUT.">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="MPI 笔记"/>
+  <meta property="og:title" content="Centos 7 设置开机自动联网"/>
   <meta property="og:site_name" content="P2P"/>
 
   
@@ -51,28 +51,43 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-03-12T22:46:08.000Z"><a href="/notes/2017/03/13/MPINotes_huihut/">2017-03-13</a></time>
+        <time datetime="2017-03-25T02:59:48.000Z"><a href="/notes/2017/03/25/Centos7Networking_huihut/">2017-03-25</a></time>
       
       
   
-    <h1 class="title">MPI 笔记</h1>
+    <h1 class="title">Centos 7 设置开机自动联网</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>MPI的笔记。</p>
-<a id="more"></a> 
-<h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><p>MPI(Massage Passing Interface):<br>消息传递函数库的标准规范，由MPI论坛开发，支持Fortran和C。</p>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>简单的MPI并行程序Hello：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &quot;mpi.h&quot;
+        <p>Centos 7 设置开机自动联网</p>
+<a id="more"></a>
+<pre><code>ls /etc/sysconfig/network-scripts/
 
-main(int argc, char *argv[]){
-    MPI_Init(&amp;argc, &amp;argv);     //MPI的初始化
-    printf(&quot;Hello, world!\n&quot;);
-    MPI_Finalize();
-}
+# 找到ifcfg-e`npxxx`，如我的是`rk-scripts`
+
+sudo vim /etc/sysconfig/network-scripts/ifcfg-enp4s0
+
+# 一般文件里面有下面这些 
+TYPE=Ethernet
+BOOTPROTO=dhcp
+DEFROUTE=yes
+PEERDNS=yes
+PEERROUTES=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_PEERDNS=yes
+IPV6_PEERROUTES=yes
+IPV6_FAILURE_FATAL=no
+NAME=enp4s0
+UUID=4d0c8a3a-50bf-497a-9b04-f5fba085ef08
+DEVICE=enp4s0
+ONBOOT=no
+
+# 把`ONBOOT=no`该为`  ONBOOT=yes`，保存即可。
 </code></pre>
       
     </div>
@@ -87,7 +102,7 @@ main(int argc, char *argv[]){
         
   
   <div class="tags">
-    <a href="/notes/tags/MPI/">MPI</a>
+    <a href="/notes/tags/Linux/">Linux</a>
   </div>
 
         
